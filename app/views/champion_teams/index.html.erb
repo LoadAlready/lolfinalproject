@@ -1,4 +1,4 @@
-<h1>Game Info<h1>
+<h1>Game Info<h1></br>
 
 <table class="ui very basic collapsing celled table">
   <thead>
@@ -14,13 +14,15 @@
         <h4 class="ui image header">
           <%= image_tag champ1_image %>
           <div class="content">
-            <%= user1 %>
-            <div class="sub header"><%= link_to team_champ1.name, team_champ1.op_url %>
+            <%= link_to opp_team_champ1.name, opp_team_champ1.op_url %>
+            <div class="sub header"><% champ_category_id = opp_team_champ1.category_id %>
+                  <% @champ_cat = Category.find(champ_category_id) %>
+                  <%= link_to @champ_cat.name, @champ_cat %>
           </div>
         </div>
       </h4></td>
       <td>
-        User Win Percentage: </br>
+
         Matchup Win Percentage: <%= get_champ_matchup(team_champ1.lol_namekey, opp_team_champ1.lol_namekey) %></br>
         Public Win Percentage: <%= team_champ1.win_percentage %></br>
         Public Pick Percentage: <%= team_champ1.pick_percentage %>
@@ -42,13 +44,15 @@
         <h4 class="ui image header">
           <%= image_tag champ2_image %>
           <div class="content">
-            <%= user2 %>
-            <div class="sub header"><%= link_to team_champ2.name, team_champ2.op_url %>
+            <%= link_to opp_team_champ2.name, opp_team_champ2.op_url %>
+            <div class="sub header"><% champ_category_id = opp_team_champ2.category_id %>
+                  <% @champ_cat = Category.find(champ_category_id) %>
+                  <%= link_to @champ_cat.name, @champ_cat %>
           </div>
         </div>
       </h4></td>
       <td>
-        User Win Percentage: </br>
+
         Matchup Win Percentage: <%= get_champ_matchup(team_champ2.lol_namekey, opp_team_champ2.lol_namekey) %></br>
         Public Win Percentage: <%= team_champ2.win_percentage %></br>
         Public Pick Percentage: <%= team_champ2.pick_percentage %>
@@ -70,13 +74,15 @@
         <h4 class="ui image header">
           <%= image_tag champ3_image %>
           <div class="content">
-            <%= user3 %>
-            <div class="sub header"><%= link_to team_champ3.name, team_champ3.op_url %>
+            <%= link_to opp_team_champ3.name, opp_team_champ3.op_url %>
+            <div class="sub header"><% champ_category_id = opp_team_champ3.category_id %>
+                  <% @champ_cat = Category.find(champ_category_id) %>
+                  <%= link_to @champ_cat.name, @champ_cat %>
           </div>
         </div>
       </h4></td>
       <td>
-        User Win Percentage: </br>
+
         Matchup Win Percentage: <%= get_champ_matchup(team_champ3.lol_namekey, opp_team_champ3.lol_namekey) %></br>
         Public Win Percentage: <%= team_champ3.win_percentage %></br>
         Public Pick Percentage: <%= team_champ3.pick_percentage %>
@@ -98,13 +104,15 @@
         <h4 class="ui image header">
           <%= image_tag champ4_image %>
           <div class="content">
-            <%= user4 %>
-            <div class="sub header"><%= link_to team_champ4.name, team_champ4.op_url %>
+            <%= link_to opp_team_champ4.name, opp_team_champ4.op_url %>
+            <div class="sub header"><% champ_category_id = opp_team_champ4.category_id %>
+                  <% @champ_cat = Category.find(champ_category_id) %>
+                  <%= link_to @champ_cat.name, @champ_cat %>
           </div>
         </div>
       </h4></td>
       <td>
-        User Win Percentage: </br>
+
         Matchup Win Percentage: <%= get_champ_matchup(team_champ4.lol_namekey, opp_team_champ4.lol_namekey) %></br>
         Public Win Percentage: <%= team_champ4.win_percentage %></br>
         Public Pick Percentage: <%= team_champ4.pick_percentage %>
@@ -126,13 +134,14 @@
         <h4 class="ui image header">
           <%= image_tag champ5_image %>
           <div class="content">
-            <%= user5 %>
-            <div class="sub header"><%= link_to team_champ5.name, team_champ5.op_url %>
+            <%= link_to user5, team_champ5.op_url   %>
+            <% get_user_stats(user5, team_champ5.name) %>
+            <div class="sub header"><%= return_user_elo %></br>
+              <%= return_user_champ_stats %>
           </div>
         </div>
       </h4></td>
       <td>
-        User Win Percentage: </br>
         Matchup Win Percentage: <%= get_champ_matchup(team_champ5.lol_namekey, opp_team_champ5.lol_namekey) %></br>
         Public Win Percentage: <%= team_champ5.win_percentage %></br>
         Public Pick Percentage: <%= team_champ5.pick_percentage %>
@@ -141,8 +150,10 @@
         <h4 class="ui image header">
           <%= image_tag opp_champ5_image %>
           <div class="content">
-            blah
-            <div class="sub header"><%= link_to opp_team_champ5.name, opp_team_champ5.op_url %>
+            <%= link_to opp_team_champ5.name, opp_team_champ5.op_url %>
+            <div class="sub header"><% champ_category_id = opp_team_champ5.category_id %>
+                  <% @champ_cat = Category.find(champ_category_id) %>
+                  <%= link_to @champ_cat.name, @champ_cat %>
           </div>
         </div>
       </h4></td>

@@ -1,21 +1,40 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Champions</h1>
+<h1 style = "text-align: center;">Champions</h1></br></br>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @champions.each do |champion| %>
-      <tr>
-        <td><%= link_to champion.name, champion %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
+
+<div class="ui cards" style = "text-align: center;">
+  <% @champions.each do |champion| %>
+  <% champ_image = "http://opgg-static.akamaized.net/images/lol/champion/"+champion.lol_namekey.to_s+".png" %>
+  <div class="ui special cards">
+    <div class="card" >
+      <div class="blurring dimmable image">
+        <div class="ui dimmer">
+          <div class="content">
+            <div class="center">
+              <div class="ui inverted button"><%= link_to "View Details", champion %></div>
+            </div>
+          </div>
+        </div>
+        <%= image_tag champ_image %>
+      </div>
+      <div class="content">
+        <a class="header"><%= link_to champion.name, champion %></a>
+        <div class="meta">
+          <span class="date"><%= champion.lol_title.titleize %></span>
+        </div>
+      </div>
+      <div class="extra content">
+        <a>
+          <i class="users icon"></i>
+          <% champ_category_id = champion.category_id %>
+          <% @champ_cat = Category.find(champ_category_id) %>
+          <%= link_to @champ_cat.name, @champ_cat %>
+        </a>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>

@@ -1,16 +1,25 @@
 <% champ_image = "http://opgg-static.akamaized.net/images/lol/champion/"+@champion.lol_namekey.to_s+".png" %>
 
-
-<%= image_tag champ_image %>
-<h1><%= @champion.name %></h1></br>
-<p>jdajda<%= @champ_cat %>
-<h3><%= @champion.lol_title.titleize %></h3></br>
-<p>League ID: <%= @champion.lol_id %></p></br>
-<p>Public Pick Percentage: <%= @champion.pick_percentage %></p>
-<p>Public Win Percentage: <%= @champion.win_percentage %></p>
-<p>OP.GG Link: <%= link_to @champion.name, @champion.op_url %></p></br>
-<p>
-
-
-<%= link_to 'Edit', edit_champion_path(@champion) %> |
+<div class="ui card">
+  <div class="image">
+    <%= image_tag champ_image %>
+  </div>
+  <div class="content">
+    <a class="header"><%= @champion.name %></a>
+    <div class="meta">
+      <span class="date"><%= @champion.lol_title.titleize %></br>
+        <%= @champ_cat.name %></span>
+    </div>
+    <div class="description">
+      Public Pick Percentage: <%= @champion.pick_percentage %></br>
+      Public Win Percentage: <%= @champion.win_percentage %></br>
+      OP.GG Link: <%= link_to @champion.name, @champion.op_url %>
+    </div>
+  </div>
+  <div class="extra content">
+    <a>
+      League ID: <%= @champion.lol_id %>
+    </a>
+  </div>
+</div>
 <%= link_to 'Back', champions_path %>

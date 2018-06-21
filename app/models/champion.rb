@@ -33,10 +33,11 @@ class Champion < ApplicationRecord
       end
   end
 
-  def set_category
+  def self.set_category
     cat_arr = [1,2,3,4,5,6]
     Champion.all.each do |champ|
       champ.category_id = cat_arr.sample
+      champ.save
     end
   end
 

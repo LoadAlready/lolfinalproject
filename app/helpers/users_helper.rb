@@ -1,6 +1,7 @@
 module UsersHelper
   @@game_params = nil
-
+  @@user_elo = nil
+  @@user_champ_stats = nil
   def game_params(params)
     @@game_params = params
   end
@@ -49,9 +50,28 @@ module UsersHelper
   def opp_team_champ5
     Champion.find(@@game_params["opp_champ_arr"][4]["champion_id"].to_i)
   end
-
+  def return_user_elo
+    @@user_elo
+  end
+  def return_user_champ_stats
+    if @@user_champ_stats.any? == false
+      return "Not enough games on this champ!"
+    else
+      return @@user_champ_stats[0]
+    end
+  end
   def get_champ_matchup(user_champ, counter_champ)
     page = Nokogiri::HTML(RestClient.get("http://matchup.gg/matchup/#{user_champ}/#{counter_champ}"))
-     champ_matchup_percentage = page.css('div.header-analysis-winrate-percentage')[1].text
+    champ_matchup_percentage = page.css('div.header-analysis-winrate-percentage')[1].text
+  end
+  def get_user_stats(name, user_champ)
+    name = name.delete(' ')
+    user_champ = user_champ.titleize
+    page = Nokogiri::HTML(RestClient.get("https://www.leagueofgraphs.com/summoner/na/#{name}"))
+    user_link_page = "http://na.op.gg/summoner/userName=#{name}"
+    user_game_data = page.at('meta[name="description"]')['content']
+    user_data_arr = user_game_data.split('/')
+    @@user_elo  = user_data_arr.first
+    @@user_champ_stats = user_data_arr.select {|c| c.include? user_champ}
   end
 end
