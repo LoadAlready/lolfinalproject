@@ -1,17 +1,16 @@
-<h1><%= @champion.name %></h1></br>
-<h3><%= @champion.lol_title %></h3></br>
-<p>League ID: <%= @champion.lol_id %></p></br>
-<p>OP.GG Link: <%= link_to @champion.name, @champion.op_url %></p></br>
+<% champ_image = "http://opgg-static.akamaized.net/images/lol/champion/"+@champion.lol_namekey.to_s+".png" %>
 
+
+<%= image_tag champ_image %>
+<h1><%= @champion.name %></h1></br>
+<p>jdajda<%= @champ_cat %>
+<h3><%= @champion.lol_title.titleize %></h3></br>
+<p>League ID: <%= @champion.lol_id %></p></br>
+<p>Public Pick Percentage: <%= @champion.pick_percentage %></p>
+<p>Public Win Percentage: <%= @champion.win_percentage %></p>
+<p>OP.GG Link: <%= link_to @champion.name, @champion.op_url %></p></br>
+<p>
 
 
 <%= link_to 'Edit', edit_champion_path(@champion) %> |
 <%= link_to 'Back', champions_path %>
-
-
-t.string "lol_title"
-t.string "lol_namekey"
-t.string "lol_picture_url"
-t.string "win_percentage"
-t.string "pick_percentage"
-t.integer "category_id"

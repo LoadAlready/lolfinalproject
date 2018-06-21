@@ -45,4 +45,6 @@ x = Property.create(name: "Blocker champion", description: "Any champion with th
 x = Property.create(name: "Interrupt champion", description: "Any champion that has an ability that is able to generally stop channeled abilities to stop other champions ability to cast abilities.")
 
 
+
 Champion.get_champ_info_from_lol
+Champion.set_category

@@ -4,13 +4,15 @@ class ChampionsController < ApplicationController
   # GET /champions
   # GET /champions.json
   def index
-    @champions = Champion.all
+    @champions = Champion.all.order('name ASC' )
   end
 
   # GET /champions/1
   # GET /champions/1.json
   def show
-    
+    # @champion = Champion.find(:id)
+    champ_category_id = @champion.category_id
+    @champ_cat = Category.find(champ_category_id)
   end
 
   # GET /champions/new

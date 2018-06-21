@@ -1,18 +1,12 @@
 class ChampionTeamsController < ApplicationController
   before_action :set_championteam, only: [:show, :edit, :update, :destroy]
 
-  # GET /championteams
-  # GET /championteams.json
+
   def index
-    @user1 = helpers.view_game_params
+
     @champion_teams = ChampionTeam.all
   end
-  def index1
 
-  end
-
-  # GET /championteams/1
-  # GET /championteams/1.json
   def show
   end
 

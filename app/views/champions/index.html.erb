@@ -12,10 +12,7 @@
   <tbody>
     <% @champions.each do |champion| %>
       <tr>
-        <td><%= champion.name %></td>
-        <td><%= link_to 'Show', champion %></td>
-        <td><%= link_to 'Edit', edit_champion_path(champion) %></td>
-
+        <td><%= link_to champion.name, champion %></td>
       </tr>
     <% end %>
   </tbody>

@@ -1,50 +1,5 @@
 <h1>Game Info<h1>
 
-<p>
-<table>
-  <tr>
-    <th>Champion Name</th>
-    <th>Champ</th>
-    <th>Stats</th>
-    <th>Champ</th>
-
-  </tr>
-  </br>
-  <tr>
-    <% champ1_image = "http://opgg-static.akamaized.net/images/lol/champion/"+team_champ1.lol_namekey.to_s+".png" %>
-    <td><%= user1 %></td>
-    <td><%= get_champ_matchup(team_champ1.lol_namekey, opp_team_champ1.lol_namekey) %></td>
-    <td><%= opp_team_champ1.name %></td>
-  </tr>
-  <tr>
-    <td><%= user2 %></td>
-    <td><%= team_champ2.name %></td>
-    <td><%= get_champ_matchup(team_champ2.lol_namekey, opp_team_champ2.lol_namekey) %></td>
-    <td><%= opp_team_champ2.name %></td>
-  </tr>
-  <tr>
-    <td><%= user3 %></td>
-    <td><%= team_champ3.name %></td>
-    <td><%= get_champ_matchup(team_champ3.lol_namekey, opp_team_champ3.lol_namekey) %></td>
-    <td><%= opp_team_champ3.name %></td>
-  </tr>
-  <tr>
-    <td><%= user4 %></td>
-    <td><%= team_champ4.name %></td>
-    <td><%= get_champ_matchup(team_champ4.lol_namekey, opp_team_champ4.lol_namekey) %></td>
-    <td><%= opp_team_champ4.name %></td>
-  </tr>
-  <tr>
-    <td><%= user5 %></td>
-    <td><%= team_champ5.name %></td>
-    <td><%= get_champ_matchup(team_champ5.lol_namekey, opp_team_champ5.lol_namekey) %></td>
-    <td><%= opp_team_champ5.name %></td>
-  </tr>
-</table>
-</p>
-
-
-
 <table class="ui very basic collapsing celled table">
   <thead>
     <tr><th>Your Team</th>
@@ -55,6 +10,7 @@
     <tr>
       <td>
         <% champ1_image = "http://opgg-static.akamaized.net/images/lol/champion/"+team_champ1.lol_namekey.to_s+".png" %>
+        <% opp_champ1_image = "http://opgg-static.akamaized.net/images/lol/champion/"+opp_team_champ1.lol_namekey.to_s+".png" %>
         <h4 class="ui image header">
           <%= image_tag champ1_image %>
           <div class="content">
@@ -63,49 +19,133 @@
           </div>
         </div>
       </h4></td>
+      <td>
+        User Win Percentage: </br>
+        Matchup Win Percentage: <%= get_champ_matchup(team_champ1.lol_namekey, opp_team_champ1.lol_namekey) %></br>
+        Public Win Percentage: <%= team_champ1.win_percentage %></br>
+        Public Pick Percentage: <%= team_champ1.pick_percentage %>
+      </td>
+      <td>
+        <h4 class="ui image header">
+          <%= image_tag opp_champ1_image %>
+          <div class="content">
+            blah
+            <div class="sub header"><%= link_to opp_team_champ1.name, opp_team_champ1.op_url %>
+          </div>
+        </div>
+      </h4></td>
     </tr>
     <tr>
       <td>
+        <% champ2_image = "http://opgg-static.akamaized.net/images/lol/champion/"+team_champ2.lol_namekey.to_s+".png" %>
+        <% opp_champ2_image = "http://opgg-static.akamaized.net/images/lol/champion/"+opp_team_champ2.lol_namekey.to_s+".png" %>
         <h4 class="ui image header">
-          <% champ1_image = "http://opgg-static.akamaized.net/images/lol/champion/"+team_champ1.lol_namekey.to_s+".png" %>
-          <%= image_tag champ1_image %>
+          <%= image_tag champ2_image %>
           <div class="content">
-            Matthew
-            <div class="sub header">Fabric Design
+            <%= user2 %>
+            <div class="sub header"><%= link_to team_champ2.name, team_champ2.op_url %>
           </div>
         </div>
       </h4></td>
       <td>
-        15
+        User Win Percentage: </br>
+        Matchup Win Percentage: <%= get_champ_matchup(team_champ2.lol_namekey, opp_team_champ2.lol_namekey) %></br>
+        Public Win Percentage: <%= team_champ2.win_percentage %></br>
+        Public Pick Percentage: <%= team_champ2.pick_percentage %>
       </td>
+      <td>
+        <h4 class="ui image header">
+          <%= image_tag opp_champ2_image %>
+          <div class="content">
+            blah
+            <div class="sub header"><%= link_to opp_team_champ2.name, opp_team_champ2.op_url %>
+          </div>
+        </div>
+      </h4></td>
     </tr>
     <tr>
       <td>
+        <% champ3_image = "http://opgg-static.akamaized.net/images/lol/champion/"+team_champ3.lol_namekey.to_s+".png" %>
+        <% opp_champ3_image = "http://opgg-static.akamaized.net/images/lol/champion/"+opp_team_champ3.lol_namekey.to_s+".png" %>
         <h4 class="ui image header">
-          <img src="/images/avatar2/small/lindsay.png" class="ui mini rounded image">
+          <%= image_tag champ3_image %>
           <div class="content">
-            Lindsay
-            <div class="sub header">Entertainment
+            <%= user3 %>
+            <div class="sub header"><%= link_to team_champ3.name, team_champ3.op_url %>
           </div>
         </div>
       </h4></td>
       <td>
-        12
+        User Win Percentage: </br>
+        Matchup Win Percentage: <%= get_champ_matchup(team_champ3.lol_namekey, opp_team_champ3.lol_namekey) %></br>
+        Public Win Percentage: <%= team_champ3.win_percentage %></br>
+        Public Pick Percentage: <%= team_champ3.pick_percentage %>
       </td>
+      <td>
+        <h4 class="ui image header">
+          <%= image_tag opp_champ3_image %>
+          <div class="content">
+            blah
+            <div class="sub header"><%= link_to opp_team_champ3.name, opp_team_champ3.op_url %>
+          </div>
+        </div>
+      </h4></td>
     </tr>
     <tr>
       <td>
+        <% champ4_image = "http://opgg-static.akamaized.net/images/lol/champion/"+team_champ4.lol_namekey.to_s+".png" %>
+        <% opp_champ4_image = "http://opgg-static.akamaized.net/images/lol/champion/"+opp_team_champ4.lol_namekey.to_s+".png" %>
         <h4 class="ui image header">
-          <img src="/images/avatar2/small/mark.png" class="ui mini rounded image">
+          <%= image_tag champ4_image %>
           <div class="content">
-            Mark
-            <div class="sub header">Executive
+            <%= user4 %>
+            <div class="sub header"><%= link_to team_champ4.name, team_champ4.op_url %>
           </div>
         </div>
       </h4></td>
       <td>
-        11
+        User Win Percentage: </br>
+        Matchup Win Percentage: <%= get_champ_matchup(team_champ4.lol_namekey, opp_team_champ4.lol_namekey) %></br>
+        Public Win Percentage: <%= team_champ4.win_percentage %></br>
+        Public Pick Percentage: <%= team_champ4.pick_percentage %>
       </td>
+      <td>
+        <h4 class="ui image header">
+          <%= image_tag opp_champ4_image %>
+          <div class="content">
+            blah
+            <div class="sub header"><%= link_to opp_team_champ4.name, opp_team_champ4.op_url %>
+          </div>
+        </div>
+      </h4></td>
+    </tr>
+    <tr>
+      <td>
+        <% champ5_image = "http://opgg-static.akamaized.net/images/lol/champion/"+team_champ5.lol_namekey.to_s+".png" %>
+        <% opp_champ5_image = "http://opgg-static.akamaized.net/images/lol/champion/"+opp_team_champ5.lol_namekey.to_s+".png" %>
+        <h4 class="ui image header">
+          <%= image_tag champ5_image %>
+          <div class="content">
+            <%= user5 %>
+            <div class="sub header"><%= link_to team_champ5.name, team_champ5.op_url %>
+          </div>
+        </div>
+      </h4></td>
+      <td>
+        User Win Percentage: </br>
+        Matchup Win Percentage: <%= get_champ_matchup(team_champ5.lol_namekey, opp_team_champ5.lol_namekey) %></br>
+        Public Win Percentage: <%= team_champ5.win_percentage %></br>
+        Public Pick Percentage: <%= team_champ5.pick_percentage %>
+      </td>
+      <td>
+        <h4 class="ui image header">
+          <%= image_tag opp_champ5_image %>
+          <div class="content">
+            blah
+            <div class="sub header"><%= link_to opp_team_champ5.name, opp_team_champ5.op_url %>
+          </div>
+        </div>
+      </h4></td>
     </tr>
   </tbody>
 </table>
