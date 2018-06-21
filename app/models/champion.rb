@@ -6,9 +6,11 @@ require 'nokogiri'
 
 
 class Champion < ApplicationRecord
+  has_many :champion_properties
   has_many :categories, through: :champion_properties
   has_many :properties, through: :champion_properties
   has_many :teams, through: :champion_teams
+
 
 
   def self.get_champ_stats_from_op(name)
@@ -20,15 +22,12 @@ class Champion < ApplicationRecord
   end
 
   def self.get_champ_info_from_lol
-    page = Nokogiri::HTML(RestClient.get("https://na1.api.riotgames.com/lol/static-data/v3/champions?locale=en_US&dataById=false&api_key=RGAPI-5b047a50-aaf1-46b6-822b-4941a44bb275"))
+    page = Nokogiri::HTML(RestClient.get("https://na1.api.riotgames.com/lol/static-data/v3/champions?locale=en_US&dataById=false&api_key=RGAPI-7d9ba260-bff4-423e-9b79-bc44335e61b1"))
     champion_hash = JSON.parse(page)
       champion_hash.each do |key, value|
         value.each do |k, v|
-          # if v[:key] = "MonkeyKing"
-          #   v[:key] = "Wukong"
           get_champ_stats_from_op(v['key'])
           ax = Champion.create(name: "#{v['name']}", lol_id: "#{v['id']}", lol_title: "#{v['title']}", lol_namekey: "#{v['key']}", op_url: "#{@op_url}", lol_picture_url: "#{@lol_picture_url}", win_percentage: "#{@win_percentage}", pick_percentage: "#{@pick_percentage}"  )
-          # end
         end
       end
   end
