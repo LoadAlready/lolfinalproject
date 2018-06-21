@@ -1,6 +1,8 @@
-<h1>Game Info<h1></br>
+<div class="pageGrad">
+  </br>
+<h1 style = "text-align: center;">Game Info<h1>
 
-<table class="ui very basic collapsing celled table">
+<table class="ui very basic collapsing celled table" style = "text-align: center; padding-left: 15%;">
   <thead>
     <tr><th>Your Team</th>
     <th>Stats</th>
@@ -14,10 +16,10 @@
         <h4 class="ui image header">
           <%= image_tag champ1_image %>
           <div class="content">
-            <%= link_to opp_team_champ1.name, opp_team_champ1.op_url %>
-            <div class="sub header"><% champ_category_id = opp_team_champ1.category_id %>
-                  <% @champ_cat = Category.find(champ_category_id) %>
-                  <%= link_to @champ_cat.name, @champ_cat %>
+            <%= link_to user1, team_champ1.op_url   %>
+            <% get_user_stats(user1, team_champ1.name) %>
+            <div class="sub header"><%= return_user_elo %></br>
+              <%= return_user_champ_stats %>
           </div>
         </div>
       </h4></td>
@@ -31,8 +33,10 @@
         <h4 class="ui image header">
           <%= image_tag opp_champ1_image %>
           <div class="content">
-            blah
-            <div class="sub header"><%= link_to opp_team_champ1.name, opp_team_champ1.op_url %>
+            <%= link_to opp_team_champ1.name, opp_team_champ1.op_url %>
+            <div class="sub header"><% champ_category_id = opp_team_champ1.category_id %>
+              <% @champ_cat = Category.find(champ_category_id) %>
+              <%= link_to @champ_cat.name, @champ_cat %>
           </div>
         </div>
       </h4></td>
@@ -44,10 +48,10 @@
         <h4 class="ui image header">
           <%= image_tag champ2_image %>
           <div class="content">
-            <%= link_to opp_team_champ2.name, opp_team_champ2.op_url %>
-            <div class="sub header"><% champ_category_id = opp_team_champ2.category_id %>
-                  <% @champ_cat = Category.find(champ_category_id) %>
-                  <%= link_to @champ_cat.name, @champ_cat %>
+            <%= link_to user2, team_champ2.op_url   %>
+            <% get_user_stats(user2, team_champ2.name) %>
+            <div class="sub header"><%= return_user_elo %></br>
+              <%= return_user_champ_stats %>
           </div>
         </div>
       </h4></td>
@@ -61,8 +65,10 @@
         <h4 class="ui image header">
           <%= image_tag opp_champ2_image %>
           <div class="content">
-            blah
-            <div class="sub header"><%= link_to opp_team_champ2.name, opp_team_champ2.op_url %>
+            <%= link_to opp_team_champ2.name, opp_team_champ2.op_url %>
+            <div class="sub header"><% champ_category_id = opp_team_champ2.category_id %>
+              <% @champ_cat = Category.find(champ_category_id) %>
+              <%= link_to @champ_cat.name, @champ_cat %>
           </div>
         </div>
       </h4></td>
@@ -74,10 +80,10 @@
         <h4 class="ui image header">
           <%= image_tag champ3_image %>
           <div class="content">
-            <%= link_to opp_team_champ3.name, opp_team_champ3.op_url %>
-            <div class="sub header"><% champ_category_id = opp_team_champ3.category_id %>
-                  <% @champ_cat = Category.find(champ_category_id) %>
-                  <%= link_to @champ_cat.name, @champ_cat %>
+            <%= link_to user3, team_champ3.op_url   %>
+            <% get_user_stats(user3, team_champ3.name) %>
+            <div class="sub header"><%= return_user_elo %></br>
+              <%= return_user_champ_stats %>
           </div>
         </div>
       </h4></td>
@@ -91,8 +97,10 @@
         <h4 class="ui image header">
           <%= image_tag opp_champ3_image %>
           <div class="content">
-            blah
-            <div class="sub header"><%= link_to opp_team_champ3.name, opp_team_champ3.op_url %>
+            <%= link_to opp_team_champ3.name, opp_team_champ3.op_url %>
+            <div class="sub header"><% champ_category_id = opp_team_champ3.category_id %>
+              <% @champ_cat = Category.find(champ_category_id) %>
+              <%= link_to @champ_cat.name, @champ_cat %>
           </div>
         </div>
       </h4></td>
@@ -104,10 +112,10 @@
         <h4 class="ui image header">
           <%= image_tag champ4_image %>
           <div class="content">
-            <%= link_to opp_team_champ4.name, opp_team_champ4.op_url %>
-            <div class="sub header"><% champ_category_id = opp_team_champ4.category_id %>
-                  <% @champ_cat = Category.find(champ_category_id) %>
-                  <%= link_to @champ_cat.name, @champ_cat %>
+            <%= link_to user4, team_champ4.op_url   %>
+            <% get_user_stats(user4, team_champ4.name) %>
+            <div class="sub header"><%= return_user_elo %></br>
+              <%= return_user_champ_stats %>
           </div>
         </div>
       </h4></td>
@@ -121,8 +129,10 @@
         <h4 class="ui image header">
           <%= image_tag opp_champ4_image %>
           <div class="content">
-            blah
-            <div class="sub header"><%= link_to opp_team_champ4.name, opp_team_champ4.op_url %>
+            <%= link_to opp_team_champ4.name, opp_team_champ4.op_url %>
+            <div class="sub header"><% champ_category_id = opp_team_champ4.category_id %>
+              <% @champ_cat = Category.find(champ_category_id) %>
+              <%= link_to @champ_cat.name, @champ_cat %>
           </div>
         </div>
       </h4></td>
@@ -152,11 +162,12 @@
           <div class="content">
             <%= link_to opp_team_champ5.name, opp_team_champ5.op_url %>
             <div class="sub header"><% champ_category_id = opp_team_champ5.category_id %>
-                  <% @champ_cat = Category.find(champ_category_id) %>
-                  <%= link_to @champ_cat.name, @champ_cat %>
+              <% @champ_cat = Category.find(champ_category_id) %>
+              <%= link_to @champ_cat.name, @champ_cat %>
           </div>
         </div>
       </h4></td>
     </tr>
   </tbody>
 </table>
+</div>
