@@ -1,8 +1,11 @@
-<h1 style= "text-align: center">Input game details</h1></br>
-
 <div class="pageCenterGame">
-<%= render 'form', champion_team: @champion_team %>
-<div style= "text-align: center">
-<%= link_to 'Back', champion_teams_path %>
+  <div style= "text-align: center">
+  <h1 class="new game form title">Input game details</h1></br>
 </div>
+    <div style="text-align: center;">
+    <%= render 'form', champion_team: @champion_team %>
+  </div>
+  <div style= "text-align: center">
+    <%= link_to 'Back', champion_teams_path %>
+  </div>
 </div>

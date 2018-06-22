@@ -1,6 +1,6 @@
 <% champ_image = "http://opgg-static.akamaized.net/images/lol/champion/"+@champion.lol_namekey.to_s+".png" %>
-
-<div class="ui card">
+<div style="text-align: center; padding-top: 3%;">
+<div class="ui centered card" >
   <div class="image">
     <%= image_tag champ_image %>
   </div>
@@ -23,3 +23,4 @@
   </div>
 </div>
 <%= link_to 'Back', champions_path %>
+</div>

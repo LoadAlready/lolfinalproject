@@ -5,6 +5,11 @@ class ChampionsController < ApplicationController
   # GET /champions.json
   def index
     @champions = Champion.all.order('name ASC' )
+    if params[:search]
+   @champions = Champion.search(params[:search]).order("name ASC")
+     else
+   @champions = Champion.all.order("name ASC")
+ end
   end
 
   # GET /champions/1

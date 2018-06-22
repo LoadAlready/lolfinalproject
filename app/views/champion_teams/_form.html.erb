@@ -2,7 +2,7 @@
 <%= form_tag users_path do %>
   <% @users_arr.each do |user| %>
     <%= fields_for 'users_container[]', user do |p| %>
-        Summoner Name: <%= p.text_field :name %>
+       <%= p.text_field :name, placeholder: "Summoner Name" %>
         Team Champ: <%= fields_for 'champ_arr[]', ChampionTeam.new do |f| %>
           <%= f.collection_select( :champion_id, Champion.all , :id, :name)%>
           <% end %> |
@@ -13,7 +13,7 @@
   <% end %>
   </br>
   <div style="text-align: center;">
-    <%= submit_tag %>
+    <%= submit_tag "Results"%>
   </div>
 <% end %>
 </br>

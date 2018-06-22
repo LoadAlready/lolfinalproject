@@ -19,20 +19,33 @@
   margin-top: 35px;
 }
 
+.ui.inverted.vertical.masthead.center.aligned.segment{
+  background-image: url('https://media.giphy.com/media/xT9IgqytoPPhKww9ws/giphy.gif');
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-top: -8.5%;
+  padding-bottom: 20%;
+}
 
+.new.game.form.title{
+  font-size: 400%;
+}
 .pageCenter {
 	margin-left: auto;
 	margin-right: auto;
 	max-width: 1000px;
 	float: none;
 }
-
+.outterGrad{
+  background: #bdc3c7;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #2c3e50, #bdc3c7);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #2c3e50, #bdc3c7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
 .pageCenterGame {
 	margin-left: auto;
 	margin-right: auto;
 	max-width: 1000px;
 	float: none;
-  padding-left: 7%;
 }
 
 .categoryCenterGrad{
@@ -48,7 +61,17 @@
   background: linear-gradient(to bottom right, white, #99a394);
   margin-left: auto;
   margin-right: auto;
-  max-width: 1000px;
+  /* max-width: 1000px; */
   text-align: center;
   float: none;
+}
+
+.ui.very.basic.collapsing.celled.table{
+  max-width: 1000px;
+  max-height: 800px;
+  margin-left: 10.5%;
+}
+
+.ui.image.header{
+  align: center;
 }
