@@ -1,6 +1,26 @@
-<p id="notice"><%= notice %></p>
-<h1><%= @category.name %></h1></br>
-<p><%= @category.description %></p>
+<h1 style="text-align: center; font-size: 400%;"><%= @category.name.pluralize %></h1></br>
+<p style="text-align: center; font-size: 14px;"><%= @category.description %></p></br>
 
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+
+<div class="ui grid">
+  <% @champs.each do |champ| %>
+  <div class="four wide column">
+  <div class="item">
+    <div class="image">
+      <% champ_image = "http://opgg-static.akamaized.net/images/lol/champion/"+champ.lol_namekey.to_s+".png" %>
+      <div style="text-align: center;"><%= image_tag champ_image %> </div>
+    </div>
+    <div class="content">
+      <a class="header" >
+        <div style="text-align: center;"><%= link_to champ.name, champ %></a>
+        </div>
+      <div class="meta">
+        <div style="text-align: center;">
+        <span><%= link_to champ.lol_title.titleize, champ %></span>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+  <% end %>
+</div>

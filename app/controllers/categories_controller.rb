@@ -5,11 +5,13 @@ class CategoriesController < ApplicationController
   # GET /categories.json
   def index
     @categories = Category.all
+  
   end
 
   # GET /categories/1
   # GET /categories/1.json
   def show
+    @champs = Champion.where(category_id: @category.id).order(:name)
   end
 
   # GET /categories/new
